@@ -13,31 +13,31 @@
         id="id"
         disabled
       />
-      <label for="name" class="mb-2">name</label>
+      <label for="name" class="mb-2">model</label>
       <input
         class="form-control"
         type="text"
         name="name"
         id="name"
-        [(ngModel)]="car.name"
+        [(ngModel)]="car.model"
         pattern="[a-zA-Z0-9 .,-]{4,}"
       />
       <div class="error-message" [hidden]="pf.controls['name']?.valid">Please enter a valid name</div>
-      <label for="price" class="mb-2">price</label>
+      <label for="price" class="mb-2">make</label>
       <input
         class="form-control"
         type="number"
         name="price"
         id="price"
-        [(ngModel)]="car.price"
+        [(ngModel)]="car.make"
       />
-      <label for="category" class="mb-2">category</label>
+      <label for="category" class="mb-2">year</label>
       <input
         class="form-control"
         type="text"
         name="category"
         id="category"
-        [(ngModel)]="car.category"
+        [(ngModel)]="car.year"
       />
       <button  [disabled]="pf.invalid" type="submit" class="btn btn-success"><!-- (click)="onUpdate(car)" -->
         Save
