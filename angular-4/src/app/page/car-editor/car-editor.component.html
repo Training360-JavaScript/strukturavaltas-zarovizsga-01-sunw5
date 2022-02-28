@@ -1,0 +1,48 @@
+<p>car-editor works!</p>
+<p>car-editor works!</p>
+{{ car$ | async | json }}
+<div class="row">
+  <div *ngIf="car$ | async as car" class="col-6">
+    <form #pf="ngForm" (ngSubmit)="onUpdate(car)" class="form-group" >
+      <label for="id" class="mb-2">ID</label>
+      <input
+        [(ngModel)]="car.id"
+        class="form-control"
+        type="number"
+        name="id"
+        id="id"
+        disabled
+      />
+      <label for="name" class="mb-2">name</label>
+      <input
+        class="form-control"
+        type="text"
+        name="name"
+        id="name"
+        [(ngModel)]="car.name"
+        pattern="[a-zA-Z0-9 .,-]{4,}"
+      />
+      <div class="error-message" [hidden]="pf.controls['name']?.valid">Please enter a valid name</div>
+      <label for="price" class="mb-2">price</label>
+      <input
+        class="form-control"
+        type="number"
+        name="price"
+        id="price"
+        [(ngModel)]="car.price"
+      />
+      <label for="category" class="mb-2">category</label>
+      <input
+        class="form-control"
+        type="text"
+        name="category"
+        id="category"
+        [(ngModel)]="car.category"
+      />
+      <button  [disabled]="pf.invalid" type="submit" class="btn btn-success"><!-- (click)="onUpdate(car)" -->
+        Save
+      </button>
+    </form>
+  </div>
+</div>
+
