@@ -61,7 +61,19 @@ const animals = [{
   }];
 
 const animalFilter = (list = animals, pop, zoo) => {
-    return [];
+
+  const filPop = list.filter(item => item.population > pop);
+
+  const filZoo = filPop.filter(item => item.zoo <= zoo);
+
+  const sortZoo = filZoo.sort((a, b) => a.common_name.localeCompare(b.common_name));
+  const sortedNames = [];
+  sortZoo.forEach(item => sortedNames.push(item.common_name));
+
+  return sortedNames;
+
+
+    // return [];
 };
 
 if (typeof module !== 'undefined') {
