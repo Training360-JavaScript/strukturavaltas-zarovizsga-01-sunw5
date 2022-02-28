@@ -10,7 +10,7 @@ import { Construction } from '../model/construction';
 export class ConstructionService {
   apiUrl: string = environment.apiUrl;
 
-  entityName: string = '';
+  entityName: string = 'constructions';
 
   getAll(): Observable<Construction[]> {
     return this.http.get<Construction[]>(`${this.apiUrl}${this.entityName}`);
