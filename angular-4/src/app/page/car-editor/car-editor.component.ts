@@ -11,7 +11,7 @@ import { CarService } from 'src/app/service/car.service';
 })
 export class CarEditorComponent implements OnInit {
 
-  product$: Observable<Car> = this.aRoute.params.pipe(
+  car$: Observable<Car> = this.aRoute.params.pipe(
     switchMap(params => this.carService.get(params['id']))
   )
   constructor(
@@ -23,4 +23,9 @@ export class CarEditorComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onUpdate(car: Car): void {
+    this.carService.update(car).subscribe({
+      next: (car) => this.router.navigate(['/', 'product'])
+    })
+  }
 }
